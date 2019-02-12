@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visalle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body,*{margin: 0;padding: 0;}
+          #singleview{
+             box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background-color: rgb(38, 100, 38);
+        }
+        #indhold{
+            box-sizing: border-box; background-color: #cff0d9;
+            width: 90vw; height: 90vh; margin: auto;
+        }
+        #luk{box-sizing: border-box; text-align: right; padding-right: 1.5em;}
+        #luk button{font-size: 2em;}
+        }
+    </style>
+</head>
+
+<body>
+    <div id="singleview">
+     <div id="luk"><button>X</button></div>
+     <div id="indhold"></div>
+    </div>
+    <script>
+        let personer=[];
+        let filter="alle";
+        document.addEventListener("DOMContentLoaded", start);
+        function start() {
+            let dest = document.querySelector("#liste");
+            async function getJson(){
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
+                personer=await jsonData.json();
+                åbn();
+            }
+            function åbn (){
+
+
+
+//                document.querySelector("#indhold").innerHTML= `
+//                <div class="person">
+//                            <h2>${person.navn}</h2>
+//                                <img class="billede" src="${person.billede}" alt="${person.navn}">
+//                                <p>Hold: ${person.hold}<br>Alder: ${person.alder}<br>Køn: ${person.køn}<br>Email: ${person.email}<br>   Github: <a href="http://www.github.com/${person.github}">${person.github}</a></p>
+//                        </div>
+//                        `
+
+            }
+
+
+            getJson();
+        }
+
+    </script>
+</body>
+
+</html>
