@@ -95,7 +95,8 @@
             async function getJson(){
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                 personer=await jsonData.json();
-                personer.sort((a,b)=>{return a.alder - b.alder})
+                personer.sort((a, b) => {return a.navn.localeCompare(b.navn);
+                                        })
                 visPersoner();
             }
             function visPersoner() {
@@ -127,6 +128,11 @@
                     }
                 })
             } //function visPerson Slut
+
+              document.querySelector("#luk button").addEventListener("click",()=>{
+                document.querySelector("#popup").style.display="none";
+            })
+
             document.querySelectorAll(".filter").forEach(elm =>{
                 elm.addEventListener("click", filtrering);
             })
