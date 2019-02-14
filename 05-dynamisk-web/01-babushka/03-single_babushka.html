@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <title>Babushka</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+
+        #singleview{
+
+            box-sizing: border-box;
+            width: 98vw;
+            height:100vh;
+            background-color: rgb(229, 188, 110);
+            text-align: center;
+        }
+
+        #indhold {
+
+            box-sizing: border-box;
+            background-color: rgb(229, 188, 110);
+            width: 40vw;
+            height: 83vh;
+            margin: auto;
+            border: white 7px solid;
+
+
+        }
+
+        #luk{box-sizing: border-box;
+        text-align: right;
+        padding-right: 1em;
+        }
+        #luk button {
+
+            font-size: 2em;
+            position: absolute;
+            right: 29vw;
+
+        }
+        #indhold img{height: 26vw;}
+
+
+              .info {
+            background-color: #8b0000;
+            border: none;
+            color: #ffffff;
+            padding: 1vw 4vw;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 15px 7px;
+            cursor: pointer;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="singleview">
+        <div id="luk"><button>X</button></div>
+        <div id="indhold"></div>
+
+    </div>
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let ret = [];
+        let filter = "alle";
+        document.addEventListener("DOMContentLoaded", start);
+        function start() {
+            let dest = document.querySelector("#liste");
+            async function getJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jxxxFoWBuMJ1qhQ9BQIAyKHmP38XtAF9_sQr0xo5JLo");
+                ret = await jsonData.json();
+                ret.forEach(obj =>{
+                    if(obj.id==id){
+                        ret=obj;
+                    }
+                })
+                åbn();
+                        }
+                        function åbn(){
+                            document.querySelector("#indhold").innerHTML= `
+                            <article class="ret">
+                            <img src="imgs/small/${ret.billede}-sm.jpg">
+                            <h2>${ret.navn}</h2>
+                            <p><br>Beskrivelse: ${ret.lang}<br>
+                            <br>Pris: ${ret.pris}kr.</p>
+                            <button class="info">Bestil</button>
+                            </article>
+                        `;
+
+
+                        }
+            document.querySelector("#luk button").addEventListener("click",()=>{
+                location.href="02-kald_babushka.html"
+            })
+
+            getJson();
+        }
+    </script>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

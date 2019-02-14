@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <title>Babushka</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .ret {
+           border: solid white 7px;
+            background-color: rgb(229, 188, 110);
+        }
+
+
+        #liste {
+            display: grid;
+            grid-template-columns: 1fr;
+            text-align: center;
+            max-width: 90vw;
+            margin: 0 2vw;
+
+        }
+
+
+
+        @media only screen and (min-width:500px) {
+
+            #liste {
+                grid-template-columns: 1fr 1fr;
+
+
+            }
+
+        }
+
+        @media only screen and (min-width:800px) {
+
+            #liste {
+                grid-template-columns: 1fr 1fr 1fr;
+
+            }
+
+        }
+
+        body {
+            background-color: rgb(229, 188, 110);
+
+        }
+
+        p {
+
+            font-size: 1.1em;
+        }
+
+
+        .menu {
+
+            text-align: center;
+
+
+        }
+
+        .valgt {
+
+            background-color: #3100ff;
+        }
+
+        .filter {
+            background-color: #8b0000;
+            border: none;
+            color: #ffffff;
+            padding: 1vw 4vw;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 5px 20px 5px;
+            cursor: pointer;
+        }
+
+        .info {
+            background-color: #8b0000;
+            border: none;
+            color: #ffffff;
+            padding: 1vw 4vw;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 15px 7px;
+            cursor: pointer;
+
+        }
+
+
+        #luk{box-sizing: border-box;
+        text-align: right;
+        padding-right: 1em;
+        }
+        #luk button {
+
+            font-size: 2em;
+
+        }
+
+                header img{
+            height: 23.4vw;
+
+        }
+
+        header h1{
+            position: absolute;
+            right: 14vw;
+            top: 3vw;
+            font-size: 6.5vw;
+            color: rgb(255, 255, 255);
+            padding: 1vw 4vw;
+            -webkit-text-stroke: 0.2vw black;
+            font-family: inherit;
+            border: rgb(119, 0, 0) solid 10px;
+            background-color: rgba(114, 0, 0, 0.6);
+        }
+
+        #liste img{height: 20vw;}
+
+        #indhold img{height: 25vw;}
+
+
+    </style>
+</head>
+
+<body>
+
+     <header>
+       <img src="imgs/banner.jpg" alt="Banner">
+        <h1>Babushka Restaurant</h1>
+        <nav class="menu">
+
+            <button class="filter valgt" data-ret="alle">Alle</button>
+            <button class="filter" data-ret="forretter">Forretter</button>
+            <button class="filter" data-ret="hovedretter">Hovedretter</button>
+            <button class="filter" data-ret="desserter">Desserter</button>
+            <button class="filter" data-ret="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-ret="sideorders">Sideorders</button>
+
+        </nav>
+
+    </header>
+
+    <main>
+    <section id="liste">
+    </section>
+</main>
+
+
+    <script>
+        let ret = [];
+        let filter = "alle";
+        document.addEventListener("DOMContentLoaded", start);
+        function start() {
+            let dest = document.querySelector("#liste");
+            async function getJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jxxxFoWBuMJ1qhQ9BQIAyKHmP38XtAF9_sQr0xo5JLo");
+                ret = await jsonData.json();
+                ret.sort((a, b) => {return a.navn.localeCompare(b.navn)});
+                visRetter();
+            }
+            function visRetter() {
+                dest.innerHTML = "";
+                ret.forEach(ret => {
+                    if (filter == "alle" || filter == ret.kategori) {
+                        let template= `
+                <article class="ret">
+                 <img src="imgs/small/${ret.billede}-sm.jpg">
+                        <h2>${ret.navn}</h2>
+                        <p><br>Kort: ${ret.kort}<br>
+                        <br>Pris: ${ret.pris}kr.</p>
+                        <button class="info">Mere information</button>
+                            </article>
+                    `;
+                        dest.insertAdjacentHTML("beforeend",template);
+                        dest.lastElementChild.addEventListener("click",()=>{
+                            location.href="03-single_babushka.html?id="+ret.id;
+                        });
+                    }
+                })
+            } //function visRetter slut
+
+
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+            function filtrering() {
+                filter = this.getAttribute("data-ret");
+                document.querySelector("h1").textContent = this.textContent;
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.classList.remove("valgt");
+                })
+                this.classList.add("valgt");
+                visRetter();
+            }
+            getJson();
+        }
+    </script>
+
+<footer>
+</footer>
+
+</body>
+
+</html>
