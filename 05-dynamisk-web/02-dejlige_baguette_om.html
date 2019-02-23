@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dejlige Baguette</title>
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+    
+     <style>
+         
+         
+        /*******************HTML CSS******************/
+        /*******************HTML CSS******************/
+        /*******************HTML CSS******************/
+        
+        body {
+            margin: 0;
+            padding: 0;
+            max-width: none;
+            background-color: #FFF9F9;
+        }
+        
+        #minibody{
+        max-width: 1200px;
+        margin: 0 auto;
+        }
+        
+
+        p {
+
+            font-size: 1.3rem;
+            font-family: 'Handlee', cursive;
+        }
+         
+         h1{
+             font-size: 1.4rem;
+             font-family: 'Handlee', cursive;
+         }
+         
+        /*******************HEADER & NAV MENU*****************/
+        /*******************HEADER & NAV MENU*****************/
+        /*******************HEADER & NAV MENU*****************/
+        
+        nav {
+            text-align: center;
+            background-color: #F5CACA;
+            padding: 5vh;
+            width: 100%;
+            position: fixed;
+        }
+        .navmenu a {
+            
+            padding: 20px;
+            color: black;
+            font-size: 1.3rem;
+            text-decoration: none;
+            font-family: 'Handlee', cursive;
+
+        }
+
+        .navmenu a:hover {
+
+            text-decoration: underline;
+        }
+         
+       
+         
+         
+         
+        /*******************RESERVATIONER*****************/
+        /*******************RESERVATIONER*****************/
+        /*******************RESERVATIONER*****************/
+
+        .mig img{
+            max-width: 450px;
+            width: 100%;
+           
+           
+        }
+        
+    
+             .tilmenu a {
+            
+            padding: 5px;
+            color: black;
+            font-size: 1.3rem;
+            text-decoration: none;
+            font-weight: 600;
+
+        }
+
+        .tilmenu a:hover {
+
+            text-decoration: underline;
+        }
+
+        .ominfo {
+
+    display: flex;
+    flex-wrap: wrap;
+
+   
+
+}
+      
+
+    
+        #om .ombox {
+    flex-grow: 2;
+    flex-basis: 392px;
+   
+
+}
+        .ombox{
+            text-align: center;
+            margin: 160px 00px 20px 0px;
+           
+        }
+         
+         .text{
+             
+             text-align: left;
+          
+         }
+         
+         .ombillede{
+             margin: 120px 0px 20px 0px;
+             
+         }
+         
+         .ombillede img{
+             width: 100%;
+             max-width: 30vw;
+             
+         }
+   
+         
+        /*******************FOOTER*****************/
+        /*******************FOOTER*****************/
+        /*******************FOOTER*****************/
+
+        footer {
+            background-color: #F5CACA;
+            padding: 1vh;
+            margin: 2vw 0vw 0vw;
+            
+            
+        }
+        
+        .footerinfo{
+            
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0px 5vw 0px 0vw;
+        }
+         
+    
+         
+         
+         
+         /*******************MEDIA QUERIES*****************/
+        /*******************MEDIA QUERIES*****************/
+        /*******************MEDIA QUERIES*****************/
+        
+        
+        @media only screen and (max-width:800px) {
+            
+                  .navmenu a {
+            
+            padding: 0px 35px 0px 0px;
+            color: black;
+            font-size: 1.3rem;
+            text-decoration: none;
+          
+            }
+            
+    
+
+             
+             .ombillede img{
+             width: 100%;
+             max-width: 60vw;
+             
+         }
+        
+         .text{
+            
+              margin: 0px 19vw 20px 19vw;
+         }
+            
+                 .footerinfo{
+            
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0px 40px 0px 40px;
+        }
+         
+            
+            
+            
+        }
+         
+         
+         
+              @media only screen and (min-width:501px) {
+                
+             .icon img {
+                display: none;
+                
+            }    
+                  
+                  .burger img {
+                display: none;
+                
+            }
+                  
+                  .dbmobil img{
+                      display: none;
+                  }
+                
+            }
+        
+        
+        @media only screen and (max-width:500px) {
+
+            
+            .hide {
+                
+                display: none;
+            }
+
+            
+            
+        nav {
+    height: 100%;
+    position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #F5CACA;
+  overflow-x: hidden;
+  padding-top: 0px;
+  transition: 1.5s;
+            
+    
+           
+          
+        }
+    .navmenu a {
+    margin: 14vh 8vw 0vh 0vw;
+    padding: 0px 0px 0vh 0vw;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+
+        }
+
+        .navmenu a:hover {
+
+           color: #d15069;
+        }
+            
+            .navbackground{
+                
+            text-align: center;
+            background-color: #F5CACA;
+            padding: 5vh;
+            width: 100%;
+            position: fixed;
+            }
+            
+                    .dbmobil{
+                margin: -2.1vh 0px 0px 29vw;
+                position: fixed;
+                z-index: 2;
+            }
+            
+            .dbmobil img{
+               width: 150%;
+            max-width: 30vh;
+            }
+            
+         
+            
+            
+            
+            .burger{
+                margin: 4vh 0px 0px 7vw;
+               text-align: left;
+                position: fixed;
+                z-index: 2;
+            }
+            
+            .burger img{
+               width: 150%;
+            max-width: 30vh;
+            }
+            
+        
+            
+             footer{
+        
+            padding: 2vh;
+            margin: 3vw 0vw 0vw;
+                
+            }
+            
+            .box{
+                
+                display: none;
+            }
+            
+   
+            .icon img {
+                 width: 25px;
+                margin: 0px 50px 0px 50px;
+                
+            }
+            
+           
+            .text {
+                
+                margin:0px 40px 30px 50px;
+            }
+            
+        }
+         
+         
+    </style>
+    
+</head>
+
+
+
+
+
+<body>
+  
+  <header>
+       
+        <div class="burger">
+                   <img src="imgs/misc/Menu.png" alt="burger">
+               </div>
+               
+                <div class="dbmobil">
+                   <img src="imgs/logo/dbmobil.svg" alt="dbmobil">
+               </div>
+               
+               <div class="navbackground"></div>
+               
+        <nav class="nav hide">
+           
+               
+               <div class="navmenu">
+                <a href="02-dejlige_baguette_forside.html">Forside</a>
+                <a href="02-dejlige_baguette_forside.html#reservationer">Reservationer</a>
+                <a href="02-dejlige_baguette_menu.html">Mad & Drikke</a>
+                <a href="https://www.facebook.com/388471461235321/photos/rpp.388471461235321/464435623638904/?type=3&theater">Facebook</a>
+                <a href="#om">Om</a>
+                </div>
+     </nav>
+  </header>
+  
+  <section id="minibody">
+  
+  
+
+  
+<section id="om">
+ 
+   
+        <div class="ominfo">
+        
+         <div class="ombox ombillede">
+         <h1>OM</h1>
+        
+        <img src="imgs/misc/mig.jpg" alt="mig">
+        </div>
+        <div class="ombox text">
+        <h1>Den Kærlige Kok<br><br>
+        Alexander Lindhardt-Meller</h1>
+        <p>Velkommen til mit fransk køkken i hjertet af Silkeborg<br><br>
+        Et køkken hvor essensen er at kombinere en skøn, uformel stemning med hygge og fantastisk fransk mad.<br><br>
+        Efter flere årrækker i Frankrig har jeg udvilket en stor passion for det franske køkken, som jeg nu har taget med hjem til Danmark. Her har jeg valgt at kombinere det franske køkken med det danske, med mulighed for en god øl efter middagen. 
+        
+        
+        <br><br>
+        Kom forbi, og oplev den skønne stemning, maden og øllen.<br><br>
+        Velbekomme<br><br>
+        Alexander Lindhardt-Meller</p><br><br>
+        
+        
+       <div class="tilmenu">
+       <a href="02-dejlige_baguette_forside.html#reservationer">Bestil Bord Her</a>
+       </div>
+        </div>
+    
+       
+    </div>
+    
+    
+</section>
+
+  
+  
+  </section>
+  
+  
+  <script>
+     document.addEventListener("DOMContentLoaded", start);
+      
+      function start() {
+          
+          document.querySelector(".burger").addEventListener("click", burgerMenu)
+      }
+      
+      function burgerMenu(){
+          
+          document.querySelector("nav").classList.toggle("hide");
+      }
+    
+    
+    </script>
+  
+  
+  <footer>
+    
+ <div class="footerinfo">
+        
+
+        <div class="icon">
+            <img src="imgs/misc/Phone.png" alt="Phone">
+        </div>
+        
+        <div class="icon">
+            <img src="imgs/misc/Messages.png" alt="Phone">
+        </div>
+           
+           
+         <a href="https://www.google.com/maps/place/Stageh%C3%B8jvej+69,+8600+Silkeborg/@56.1877049,9.5549776,16z/data=!4m5!3m4!1s0x464b8b35d1c394e7:0x868ea7806fa072b6!8m2!3d56.1870483!4d9.5579718">
+            <div class="icon">
+            <img src="imgs/misc/Places.png" alt="Phone">
+        </div>
+          </a>
+        
+        <div class="box">
+        <p>
+            Åbent Fra kl.<br>
+            09:00-21:00 Hver Dag
+        </p>
+        </div>
+        <div class="box">
+           <p>
+           Stagehøjvej 69, 8600 Silkeborg<br>
+           Danmark
+        </p>
+        </div>
+        <div class="box">
+           <p>
+            Reservationer Laves På<br>
+            +45 21767831
+        </p>
+        </div>
+        
+        
+    
+         </div>
+    
+</footer>
+   
+</body>
+
+
+
+</html>
